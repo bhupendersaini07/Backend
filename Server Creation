@@ -1,0 +1,47 @@
+How to create a Web Server
+
+const http=require("http");
+http.createServer((req,res) =>{
+    res.end("Server is created");
+}).listen("3000",()=>{
+    console.log("Listning at 3000")
+})
+
+
+const fs=require("fs")
+fs.readFile("demo.txt" ,"utf-8",(err,data) =>{
+    if(err) throw err;
+    else console.log(data)
+})
+
+
+// const fs=require("fs")
+// fs.writeFile("demo1.txt","This is new file data",(err,data) =>{
+//     if(err) throw err;
+//     else console.log("Data has been written");
+// })
+
+
+// const fs=require("fs")
+// fs.appendFile("demo1.txt","\n This is second line", (err)=>{
+//     if(err) throw err;
+//     else console.log("Update File")
+// })
+
+
+// const fs= require("fs")
+    // fs.unlink("demo1.txt",(err)=>{
+    //     if(err) throw err;
+    // })
+
+
+fs.readFile("data1.txt","utf-8",(err,data1)=>{
+    if(err) throw err;
+    fs.readFile("data2.txt","utf-8",(err,data2)=>{
+        if(err) throw err;
+        fs.writeFile("combinedData.txt",data1+data2,(err)=>{
+            if(err) throw err;
+
+        })
+    })
+})
